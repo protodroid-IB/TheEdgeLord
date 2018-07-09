@@ -10,6 +10,7 @@ public class GunFire : GunAim
     [SerializeField]
     private Transform bulletsInHierarchyTransform;
 
+
 	// Use this for initialization
 	void Start ()
     {
@@ -32,7 +33,8 @@ public class GunFire : GunAim
         if(Input.GetButtonDown("Fire1"))
         {
             Debug.Log("Fire!");
-            Instantiate(bullet, GetBulletTransform().position, Quaternion.identity, bulletsInHierarchyTransform);
+            Quaternion bulletRot = Quaternion.FromToRotation(transform.localPosition, GetFireDirection());
+            Instantiate(bullet, GetBulletTransform().position, bulletRot, bulletsInHierarchyTransform);
         }
     }
 }
