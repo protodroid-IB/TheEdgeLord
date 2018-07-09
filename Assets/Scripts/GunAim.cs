@@ -17,9 +17,17 @@ public class GunAim : MonoBehaviour
 
     private void Start()
     {
-        fpsCam = Camera.main;
-        lineOfSight  = GetComponent<LineRenderer>();
+        
     }
+
+
+
+    public void DeclareAimVariables()
+    {
+        fpsCam = Camera.main;
+        lineOfSight = GetComponent<LineRenderer>();
+    }
+
 
 
     public Vector3 GetFireDirectionPoint()
@@ -27,16 +35,25 @@ public class GunAim : MonoBehaviour
         return fireDirectionPoint;
     }
 
+
+
     public Vector3 GetFireDirection()
     {
         return (bulletSpawnTransform.position - fireDirectionPoint).normalized;
+    }
+
+
+
+
+    public Transform GetBulletTransform()
+    {
+        return bulletSpawnTransform;
     }
 	
 
 
 
-	// Update is called once per frame
-	private void Update ()
+    public void AimGun()
     {
         Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
 
@@ -56,7 +73,6 @@ public class GunAim : MonoBehaviour
 
             lineOfSight.SetPosition(1, fireDirectionPoint);
         }
-
     }
 
 }
