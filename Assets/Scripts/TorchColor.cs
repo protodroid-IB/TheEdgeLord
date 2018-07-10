@@ -17,11 +17,6 @@ public class TorchColor : MonoBehaviour
     [SerializeField] private MeshRenderer flameMR;
 
 
-    private void Start()
-    {
-        CollideWithBullet();
-    }
-
 
 
     // Update is called once per frame
@@ -77,15 +72,19 @@ public class TorchColor : MonoBehaviour
     {
         // implement color changing behaviour here
         flameMR.material.color = inColor;
-
     }
 
+    
 
-
-
-    public void CollideWithBullet()
+    public void ChangeColorState(string inState)
     {
-        currentColorState = ColorState.Green;
-        // implement bullet collision behaviour here
+        if (inState == "LightBulletRed(Clone)") currentColorState = ColorState.Red;
+        else if (inState == "LightBulletOrange(Clone)") currentColorState = ColorState.Orange;
+        else if (inState == "LightBulletBlue(Clone)") currentColorState = ColorState.Blue;
+        else if (inState == "LightBulletGreen(Clone)") currentColorState = ColorState.Green;
+        else if (inState == "LightBulletPurple(Clone)") currentColorState = ColorState.Purple;
+        else if (inState == "LightBulletYellow(Clone)") currentColorState = ColorState.Yellow;
     }
+
+
 }
