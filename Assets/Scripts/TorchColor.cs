@@ -5,12 +5,13 @@ using UnityEngine;
 public class TorchColor : MonoBehaviour
 {
     // the colors to use for the torches
-    [SerializeField] private Color redFlame, orangeFlame, blueFlame, greenFlame, yellowFlame, purpleFlame;
+    [SerializeField] private Material redFlame, orangeFlame, blueFlame, greenFlame, yellowFlame, purpleFlame;
 
     // possible states for the current colour of the torch
     private enum ColorState {Red, Orange, Blue, Green, Yellow, Purple};
 
     // current color state
+    [SerializeField]
     private ColorState currentColorState = ColorState.Orange;
 
     // mesh renderer of the flame gameobject
@@ -34,31 +35,31 @@ public class TorchColor : MonoBehaviour
         switch (currentColorState)
         {
             case ColorState.Red:
-                ChangeColor(redFlame);
+                ChangeMaterial(redFlame);
                 break;
 
             case ColorState.Orange:
-                ChangeColor(orangeFlame);
+                ChangeMaterial(orangeFlame);
                 break;
 
             case ColorState.Blue:
-                ChangeColor(blueFlame);
+                ChangeMaterial(blueFlame);
                 break;
 
             case ColorState.Green:
-                ChangeColor(greenFlame);
+                ChangeMaterial(greenFlame);
                 break;
 
             case ColorState.Yellow:
-                ChangeColor(yellowFlame);
+                ChangeMaterial(yellowFlame);
                 break;
 
             case ColorState.Purple:
-                ChangeColor(purpleFlame);
+                ChangeMaterial(purpleFlame);
                 break;
 
             default:
-                ChangeColor(orangeFlame);
+                ChangeMaterial(orangeFlame);
                 break;
         }
     }
@@ -68,10 +69,10 @@ public class TorchColor : MonoBehaviour
 
 
     // this method changes the color of the torch
-    public void ChangeColor(Color inColor)
+    public void ChangeMaterial(Material inMat)
     {
         // implement color changing behaviour here
-        flameMR.material.color = inColor;
+        flameMR.material = inMat;
     }
 
     

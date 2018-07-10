@@ -60,8 +60,14 @@ public class GunAim : MonoBehaviour
 
         if(gunProperties.GetDebugMode() == true)
         {
+            if (lineOfSight.enabled == false) lineOfSight.enabled = true;
+
             lineOfSight.SetPosition(0, gunProperties.GetBulletTransform().position);
             lineOfSight.SetPosition(1, fireDirectionPoint);
+        }
+        else
+        {
+            if(lineOfSight == true) lineOfSight.enabled = false;
         }
     }
 
