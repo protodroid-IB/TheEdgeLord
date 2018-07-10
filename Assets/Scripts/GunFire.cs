@@ -6,11 +6,14 @@ public class GunFire : MonoBehaviour
 {
     private GunProperties gunProperties;
 
+    private float fireRateTimer;
+
 
 	// Use this for initialization
 	void Start ()
     {
         gunProperties = GetComponent<GunProperties>();
+        fireRateTimer = gunProperties.GetFireRate();
     }
 	
 	// Update is called once per frame
@@ -22,10 +25,16 @@ public class GunFire : MonoBehaviour
 
     void FireGun()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButton("Fire1"))
         {
-            Debug.Log("Fire!");
-            Instantiate(gunProperties.GetBulletPrefab(), gunProperties.GetBulletTransform().position, gunProperties.GetBulletTransform().rotation, gunProperties.GetBulletsInHierarchyTransform());
+            if(fireRateTimer <= 0f)
+            {
+                Debug.Log("Fire!");
+                GameObject bullet = Instantiate(gunProperties.GetBulletPrefab(), gunProperties.GetBulletTransform().position, gunProperties.GetBulletTransform().rotation, gunProperties.GetBulletsInHierarchyTransform());
+                fireRateTimer = gunProperties.GetFireRate();
+            }
         }
+
+        fireRateTimer -= Time.deltaTime;
     }
 }
