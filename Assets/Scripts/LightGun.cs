@@ -10,7 +10,12 @@ public class LightGun : MonoBehaviour
     private GunFire gunFire;
 
     // the colors to use for the bullets
-    [SerializeField] private Color red, orange, blue, green, yellow, purple;
+    [SerializeField]
+    private Color red, orange, blue, green, yellow, purple;
+
+
+    [SerializeField]
+    private GameObject[] bulletPrefabs;
 
     private int colorSelected = 0;
 
@@ -33,6 +38,7 @@ public class LightGun : MonoBehaviour
         gunProperties = GetComponent<GunProperties>();
         gunFire = gunProperties.GetGunFire();
         colorStateSize = System.Enum.GetNames(typeof(ColorState)).Length;
+        gunProperties.SetBulletPrefab(bulletPrefabs[colorSelected]);
     }
 
 
@@ -115,5 +121,7 @@ public class LightGun : MonoBehaviour
         if (colorSelected < 0) colorSelected = colorStateSize + colorSelected;
 
         currentColorState = (ColorState)colorSelected;
+
+        gunProperties.SetBulletPrefab(bulletPrefabs[colorSelected]);
     }
 }

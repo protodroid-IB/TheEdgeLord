@@ -1129,6 +1129,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114265505289435882, guid: 2b1db476157feec47900b274f209de64,
+        type: 2}
+      propertyPath: uiColorImage
+      value: 
+      objectReference: {fileID: 1452848531}
     - target: {fileID: 114126986458422632, guid: 2b1db476157feec47900b274f209de64,
         type: 2}
       propertyPath: bulletsInHierarchyTransform
@@ -1898,29 +1903,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514045738}
---- !u!1 &1668575256 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1008760944004124, guid: 2b1db476157feec47900b274f209de64,
-    type: 2}
-  m_PrefabInternal: {fileID: 648722829}
---- !u!114 &1668575266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1668575256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e66dc07e3079214aa241d3456ef1015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  red: {r: 1, g: 0, b: 0, a: 1}
-  orange: {r: 1, g: 0.5137255, b: 0, a: 1}
-  blue: {r: 0, g: 0.65882355, b: 1, a: 1}
-  green: {r: 0, g: 1, b: 0.18039216, a: 1}
-  yellow: {r: 1, g: 0.9411765, b: 0, a: 1}
-  purple: {r: 0.78039217, g: 0.003921569, b: 0.8117647, a: 1}
-  uiColorImage: {fileID: 1452848531}
 --- !u!43 &1693265448
 Mesh:
   m_ObjectHideFlags: 0

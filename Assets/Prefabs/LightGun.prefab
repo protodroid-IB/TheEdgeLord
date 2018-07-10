@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114126986458422632}
   - component: {fileID: 114272372023343388}
   - component: {fileID: 114065568945267352}
+  - component: {fileID: 114265505289435882}
   m_Layer: 0
   m_Name: LightGun
   m_TagString: Untagged
@@ -440,6 +441,31 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
+--- !u!114 &114265505289435882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008760944004124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e66dc07e3079214aa241d3456ef1015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  red: {r: 1, g: 0, b: 0, a: 1}
+  orange: {r: 1, g: 0.5137255, b: 0, a: 1}
+  blue: {r: 0, g: 0.65882355, b: 1, a: 1}
+  green: {r: 0, g: 1, b: 0.18039216, a: 1}
+  yellow: {r: 1, g: 0.9411765, b: 0, a: 1}
+  purple: {r: 0.78039217, g: 0.003921569, b: 0.8117647, a: 1}
+  bulletPrefabs:
+  - {fileID: 1908119992096902, guid: a17192817f0b2f44a8551c66bb822559, type: 2}
+  - {fileID: 1908119992096902, guid: a2b694b589bfbab488074b803d5efa77, type: 2}
+  - {fileID: 1908119992096902, guid: 2eb468d1e5d0c4843b6c1d54d4b63ce0, type: 2}
+  - {fileID: 1908119992096902, guid: 86cbbe7986b1ac2468a9b400a9bc394e, type: 2}
+  - {fileID: 1908119992096902, guid: 646eecd72bb0f6040baee75b1458cc0e, type: 2}
+  - {fileID: 1908119992096902, guid: a40de6937ba90ea44a006635e1e5f7ce, type: 2}
+  uiColorImage: {fileID: 0}
 --- !u!114 &114272372023343388
 MonoBehaviour:
   m_ObjectHideFlags: 1
