@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GunAim : MonoBehaviour
 {
-    [SerializeField]
-    private Transform bulletSpawnTransform;
+    private GunProperties gunProperties;
 
     private LineRenderer lineOfSight;
     private Camera fpsCam;
@@ -15,20 +14,17 @@ public class GunAim : MonoBehaviour
     private float fireRange = 150f;
 
 
-    private void Start()
+    public void Start()
     {
-        
-    }
-
-
-
-    public void DeclareAimVariables()
-    {
+        gunProperties = GetComponent<GunProperties>();
         fpsCam = Camera.main;
         lineOfSight = GetComponent<LineRenderer>();
     }
 
-
+    private void Update()
+    {
+        AimGun();
+    }
 
     public Vector3 GetFireDirectionPoint()
     {
@@ -39,17 +35,8 @@ public class GunAim : MonoBehaviour
 
     public Vector3 GetFireDirection()
     {
-        return (bulletSpawnTransform.position - fireDirectionPoint).normalized;
+        return (gunProperties.GetBulletTransform().position - fireDirectionPoint).normalized;
     }
-
-
-
-
-    public Transform GetBulletTransform()
-    {
-        return bulletSpawnTransform;
-    }
-	
 
 
 
@@ -59,18 +46,21 @@ public class GunAim : MonoBehaviour
 
         RaycastHit hit;
 
-        lineOfSight.SetPosition(0, bulletSpawnTransform.position);
-
-        if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, fireRange))
+        if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, gunProperties.GetFireRange()))
         {
             fireDirectionPoint = hit.point;
-
-            lineOfSight.SetPosition(1, fireDirectionPoint);
+  
         }
         else
         {
-            fireDirectionPoint = rayOrigin + (fpsCam.transform.forward * fireRange);
+            fireDirectionPoint = rayOrigin + (fpsCam.transform.forward * gunProperties.GetFireRange());
 
+        }
+
+
+        if(gunProperties.GetDebugMode() == true)
+        {
+            lineOfSight.SetPosition(0, gunProperties.GetBulletTransform().position);
             lineOfSight.SetPosition(1, fireDirectionPoint);
         }
     }

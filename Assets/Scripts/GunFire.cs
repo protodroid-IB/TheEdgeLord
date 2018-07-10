@@ -2,30 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunFire : GunAim
+public class GunFire : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject bullet;
-
-    [SerializeField]
-    private Transform bulletsInHierarchyTransform;
+    private GunProperties gunProperties;
 
 
 	// Use this for initialization
 	void Start ()
     {
-        DeclareAimVariables();
-
+        gunProperties = GetComponent<GunProperties>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        AimGun();
         FireGun();
 	}
-
-
 
 
     void FireGun()
@@ -33,7 +25,7 @@ public class GunFire : GunAim
         if(Input.GetButtonDown("Fire1"))
         {
             Debug.Log("Fire!");
-            Instantiate(bullet, GetBulletTransform().position, GetBulletTransform().rotation, bulletsInHierarchyTransform);
+            Instantiate(gunProperties.GetBulletPrefab(), gunProperties.GetBulletTransform().position, gunProperties.GetBulletTransform().rotation, gunProperties.GetBulletsInHierarchyTransform());
         }
     }
 }
