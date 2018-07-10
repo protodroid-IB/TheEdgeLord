@@ -17,6 +17,8 @@ public class TorchColor : MonoBehaviour
     // mesh renderer of the flame gameobject
     [SerializeField] private MeshRenderer flameMR;
 
+    [SerializeField] private Light flameLight;
+
 
 
 
@@ -35,31 +37,31 @@ public class TorchColor : MonoBehaviour
         switch (currentColorState)
         {
             case ColorState.Red:
-                ChangeMaterial(redFlame);
+                ChangeFlame(redFlame);
                 break;
 
             case ColorState.Orange:
-                ChangeMaterial(orangeFlame);
+                ChangeFlame(orangeFlame);
                 break;
 
             case ColorState.Blue:
-                ChangeMaterial(blueFlame);
+                ChangeFlame(blueFlame);
                 break;
 
             case ColorState.Green:
-                ChangeMaterial(greenFlame);
+                ChangeFlame(greenFlame);
                 break;
 
             case ColorState.Yellow:
-                ChangeMaterial(yellowFlame);
+                ChangeFlame(yellowFlame);
                 break;
 
             case ColorState.Purple:
-                ChangeMaterial(purpleFlame);
+                ChangeFlame(purpleFlame);
                 break;
 
             default:
-                ChangeMaterial(orangeFlame);
+                ChangeFlame(orangeFlame);
                 break;
         }
     }
@@ -73,6 +75,17 @@ public class TorchColor : MonoBehaviour
     {
         // implement color changing behaviour here
         flameMR.material = inMat;
+    }
+
+    public void ChangeLightColor(Material inMat)
+    {
+        flameLight.color = inMat.color;
+    }
+
+    public void ChangeFlame(Material inMat)
+    {
+        ChangeMaterial(inMat);
+        ChangeLightColor(inMat);
     }
 
     

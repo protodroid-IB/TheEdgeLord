@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField]
+    private bool disablePlayerInput = false;
 
-	// Use this for initialization
-	void Start ()
+    [SerializeField]
+    private UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsController;
+
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -14,6 +19,7 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
+        if (disablePlayerInput == true) fpsController.enabled = false;
+        else fpsController.enabled = true;
 	}
 }

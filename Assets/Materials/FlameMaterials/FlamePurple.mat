@@ -9,7 +9,7 @@ Material:
   m_Name: FlamePurple
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 0
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -72,5 +72,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6698113, g: 0.072668225, b: 0.59807533, a: 1}
-    - _EmissionColor: {r: 0.668894, g: 0.0990566, b: 1, a: 1}
+    - _Color: {r: 0.9433962, g: 0.35154858, b: 0.87330896, a: 1}
+    - _EmissionColor: {r: 0.5446869, g: 0.07963259, b: 0.8122524, a: 1}
