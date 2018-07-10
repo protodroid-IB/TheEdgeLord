@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private float bulletSpeed = 4f;
+    private float bulletSpeed = 4f, deathTime = 5f;
 
 	// Use this for initialization
 	void Start ()
@@ -17,10 +17,16 @@ public class BulletBehaviour : MonoBehaviour
 	void Update ()
     {
         Move();
+        Kill();
     }
 
     private void Move()
     {
         transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+    }
+
+    private void Kill()
+    {
+        Destroy(gameObject, deathTime);
     }
 }

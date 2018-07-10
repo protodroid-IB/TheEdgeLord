@@ -9,6 +9,12 @@ public class GunProperties : MonoBehaviour
     [SerializeField]
     private bool debugMode = false;
 
+    private GameController gameController;
+
+    private GunFire gunFire;
+
+    private GunAim gunAim;
+
     [SerializeField]
     private Transform bulletSpawnTransform;
 
@@ -27,7 +33,12 @@ public class GunProperties : MonoBehaviour
 
 
 
-   
+    private void Start()
+    {
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        gunFire = GetComponent<GunFire>();
+        gunAim = GetComponent<GunAim>();
+    }
 
     public Transform GetBulletTransform()
     {
@@ -57,6 +68,21 @@ public class GunProperties : MonoBehaviour
     public bool GetDebugMode()
     {
         return debugMode;
+    }
+
+    public GameController GetGameController()
+    {
+        return gameController;
+    }
+
+    public GunFire GetGunFire()
+    {
+        return gunFire;
+    }
+
+    public GunAim GetGunAim()
+    {
+        return gunAim;
     }
 
 
