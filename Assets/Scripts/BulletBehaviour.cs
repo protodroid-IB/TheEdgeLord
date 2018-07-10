@@ -21,6 +21,6 @@ public class BulletBehaviour : MonoBehaviour
 
     private void Move()
     {
-        transform.position += Vector3.forward * bulletSpeed * Time.deltaTime;
+        transform.position += transform.forward * bulletSpeed * Time.deltaTime;
     }
 }

@@ -33,8 +33,7 @@ public class GunFire : GunAim
         if(Input.GetButtonDown("Fire1"))
         {
             Debug.Log("Fire!");
-            Quaternion bulletRot = Quaternion.FromToRotation(transform.localPosition, GetFireDirection());
-            Instantiate(bullet, GetBulletTransform().position, bulletRot, bulletsInHierarchyTransform);
+            Instantiate(bullet, GetBulletTransform().position, GetBulletTransform().rotation, bulletsInHierarchyTransform);
         }
     }
 }
