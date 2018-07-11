@@ -19,8 +19,8 @@ public class GunFire : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        FireGun();
-	}
+        if(gunProperties.GetGameController().GetPlayerInputEnabled()) FireGun();
+    }
 
 
     void FireGun()
@@ -29,7 +29,7 @@ public class GunFire : MonoBehaviour
         {
             if(fireRateTimer <= 0f)
             {
-                Debug.Log("Fire!");
+                //Debug.Log("Fire!");
                 GameObject bullet = Instantiate(gunProperties.GetBulletPrefab(), gunProperties.GetBulletTransform().position, gunProperties.GetBulletTransform().rotation, gunProperties.GetBulletsInHierarchyTransform());
                 fireRateTimer = gunProperties.GetFireRate();
             }

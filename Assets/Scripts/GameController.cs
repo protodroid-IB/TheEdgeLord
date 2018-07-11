@@ -19,7 +19,28 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        DisablePlayerControlsDebug();
+
         if (disablePlayerInput == true) fpsController.enabled = false;
         else fpsController.enabled = true;
 	}
+
+    public bool GetPlayerInputEnabled()
+    {
+        return !disablePlayerInput;
+    }
+
+    public void SetPlayerInputEnabled(bool inActive)
+    {
+        disablePlayerInput = !inActive;
+    }
+
+    private void DisablePlayerControlsDebug()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            if (GetPlayerInputEnabled() == true) SetPlayerInputEnabled(false);
+            else SetPlayerInputEnabled(true);
+        }
+    }
 }
