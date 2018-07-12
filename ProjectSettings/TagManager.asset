@@ -8,6 +8,7 @@ TagManager:
   - LightBulletRange
   - LightBullet
   - StoneBlock
+  - SceneFader
   layers:
   - Default
   - TransparentFX
