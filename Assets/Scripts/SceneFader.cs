@@ -45,7 +45,7 @@ public class SceneFader : MonoBehaviour
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         gameController.SetNewScene(true);
-        Invoke("EnablePlayerControls", 2f);
+        gameController.NewScene();
     }
 
 
@@ -63,11 +63,6 @@ public class SceneFader : MonoBehaviour
     public void FadeComplete()
     {
         SceneManager.LoadScene(sceneToChangeTo);
-    }
-
-    private void EnablePlayerControls()
-    {
-        gameController.SetPlayerInputEnabled(true);
     }
 
 

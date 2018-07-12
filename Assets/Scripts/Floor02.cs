@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Floor02 : MonoBehaviour {
+public class Floor02 : Floor {
 
 	// Use this for initialization
 	void Start () {

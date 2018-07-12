@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 95529030580995258}
   m_Layer: 0
   m_Name: SceneFader
-  m_TagString: Untagged
+  m_TagString: SceneFader
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,11 +124,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1912537440496978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77a0fbc67c7be24b9343ff0e4b363ce, type: 3}
+  m_Script: {fileID: 11500000, guid: c8c34aa210dbb0e46bf7283ee585bd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95529030580995258}
-  splashTime: 3
 --- !u!114 &114714994531117576
 MonoBehaviour:
   m_ObjectHideFlags: 1

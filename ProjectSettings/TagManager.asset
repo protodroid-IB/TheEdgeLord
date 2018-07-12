@@ -9,6 +9,11 @@ TagManager:
   - LightBullet
   - StoneBlock
   - SceneFader
+  - Start
+  - End
+  - Torches
+  - Doors
+  - PressureSwitches
   layers:
   - Default
   - TransparentFX

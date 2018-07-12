@@ -20,8 +20,12 @@ public class GameController : MonoBehaviour
     private Floor02 floor02Script;
     private Floor03 floor03Script;
 
+    private string lastScene = "Floor00";
+
+    private GameObject playerGO;
+
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
         floor00Script = GetComponent<Floor00>();
         floor01Script = GetComponent<Floor01>();
@@ -36,8 +40,7 @@ public class GameController : MonoBehaviour
     {
         if(newScene == true)
         {
-            fpsController = GameObject.FindWithTag("Player").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
-            ControlSceneScripts();
+            
             newScene = false;
         }
 
@@ -59,6 +62,11 @@ public class GameController : MonoBehaviour
     public void SetPlayerInputEnabled(bool inActive)
     {
         disablePlayerInput = !inActive;
+    }
+
+    private void EnablePlayerControls()
+    {
+        SetPlayerInputEnabled(true);
     }
 
     private void DisablePlayerControlsDebug()
@@ -101,13 +109,17 @@ public class GameController : MonoBehaviour
 
     private void ControlSceneScripts()
     {
-        switch (SceneManager.GetActiveScene().name)
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        switch (currentScene)
         {
             case "Floor00":
                 floor00Script.enabled = true;
                 floor01Script.enabled = false;
                 floor02Script.enabled = false;
                 floor03Script.enabled = false;
+                FindPlayerPosition(currentScene);
+                
                 break;
 
             case "Floor01":
@@ -115,6 +127,7 @@ public class GameController : MonoBehaviour
                 floor01Script.enabled = true;
                 floor02Script.enabled = false;
                 floor03Script.enabled = false;
+                FindPlayerPosition(currentScene);
                 break;
 
             case "Floor02":
@@ -122,6 +135,7 @@ public class GameController : MonoBehaviour
                 floor01Script.enabled = false;
                 floor02Script.enabled = true;
                 floor03Script.enabled = false;
+                FindPlayerPosition(currentScene);
                 break;
 
             case "Floor03":
@@ -129,6 +143,7 @@ public class GameController : MonoBehaviour
                 floor01Script.enabled = false;
                 floor02Script.enabled = false;
                 floor03Script.enabled = true;
+                FindPlayerPosition(currentScene);
                 break;
         }
     }
@@ -136,5 +151,51 @@ public class GameController : MonoBehaviour
     public void SetNewScene(bool inNewScene)
     {
         newScene = inNewScene;
+    }
+
+    public void NewScene()
+    {
+        playerGO = GameObject.FindWithTag("Player");
+        fpsController = playerGO.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
+
+        ControlSceneScripts();
+
+        Invoke("EnablePlayerControls", 1.5f);
+    }
+
+
+    public void FindPlayerPosition(string currentScene)
+    {
+        switch(lastScene)
+        {
+            case "Floor00":
+                if (currentScene == "Floor00") SetPlayerTransform(floor00Script.GetStartTransform());
+                else if (currentScene == "Floor01") SetPlayerTransform(floor01Script.GetStartTransform());
+                lastScene = "Floor01";
+                break;
+
+            case "Floor01":
+                if (currentScene == "Floor00") SetPlayerTransform(floor00Script.GetEndTransform());
+                else if (currentScene == "Floor02") SetPlayerTransform(floor02Script.GetStartTransform());
+                lastScene = "Floor02";
+                break;
+
+            case "Floor02":
+                if (currentScene == "Floor01") SetPlayerTransform(floor01Script.GetEndTransform());
+                else if (currentScene == "Floor03") SetPlayerTransform(floor03Script.GetStartTransform());
+                lastScene = "Floor03";
+                break;
+
+            case "Floor03":
+                if (currentScene == "Floor02") SetPlayerTransform(floor02Script.GetEndTransform());
+                lastScene = "Floor04";
+                break;
+        }
+    }
+
+    private void SetPlayerTransform(Transform inTransform)
+    {
+        playerGO.transform.position = inTransform.position;
+        playerGO.transform.rotation = inTransform.rotation;
     }
 }
