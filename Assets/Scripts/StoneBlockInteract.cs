@@ -32,26 +32,29 @@ public class StoneBlockInteract : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            BlockInteract();
+            if (playerInteract.Interact())
+            {
+                if (isGrounded == true)
+                {
+                    GrabBlock();
+                }
+            }
         }
     }
 
-
-
-
-    private void BlockInteract()
+    private void Update()
     {
-        if(playerInteract.Interact())
+        if (playerInteract.Interact())
         {
-            if(isGrounded == true)
-            {
-                GrabBlock();
-            }
-            else
+            if (isGrounded == false)
             {
                 PlaceBlock();
             }
         }
+
+
+        if (transform.parent == stoneBlocksTransform) isGrounded = true;
+        else isGrounded = false;
     }
 
 
@@ -59,9 +62,10 @@ public class StoneBlockInteract : MonoBehaviour
 
     private void GrabBlock()
     {
-        isGrounded = false;
         playerGunGO.SetActive(false);
         transform.SetParent(playerGrabTransform);
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.localPosition = Vector3.zero;
         thisRB.useGravity = false;
         thisRB.isKinematic = true;
         Debug.Log("Grab Block!");
@@ -69,9 +73,9 @@ public class StoneBlockInteract : MonoBehaviour
 
 
 
+
     private void PlaceBlock()
     {
-        isGrounded = true;
         playerGunGO.SetActive(true);
         transform.SetParent(stoneBlocksTransform);
         thisRB.useGravity = true;
