@@ -20,6 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4942921546082474}
   - component: {fileID: 114786126052209194}
+  - component: {fileID: 114071004295280700}
+  - component: {fileID: 114489716910200388}
+  - component: {fileID: 114619157603835668}
+  - component: {fileID: 114767895054120574}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -190,6 +194,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114071004295280700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041238749337836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7981252539e4c4aaaf5f232809aa3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torchesGO: {fileID: 0}
+  doors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pressureSwitches:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114156828513769188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,6 +271,28 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114489716910200388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041238749337836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb5f62e8b0f8424bb06eda32cee14cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114619157603835668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041238749337836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813ae532d861d9b4fae2fbc8ba0b38a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114662609174515342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,6 +359,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114767895054120574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041238749337836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835686a2164649e458b3a04ce9a4bb9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114786126052209194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,7 +382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disablePlayerInput: 0
-  fpsController: {fileID: 0}
 --- !u!114 &114888589534025292
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1962,11 +1962,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114786126052209194, guid: 8583327393773d049b110221dd4e2c11,
+    - target: {fileID: 114071004295280700, guid: 8583327393773d049b110221dd4e2c11,
         type: 2}
-      propertyPath: fpsController
+      propertyPath: torchesGO
       value: 
-      objectReference: {fileID: 689849332}
+      objectReference: {fileID: 821534540}
+    - target: {fileID: 114071004295280700, guid: 8583327393773d049b110221dd4e2c11,
+        type: 2}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 1213169460}
+    - target: {fileID: 114071004295280700, guid: 8583327393773d049b110221dd4e2c11,
+        type: 2}
+      propertyPath: doors.Array.data[1]
+      value: 
+      objectReference: {fileID: 1611796658}
+    - target: {fileID: 114071004295280700, guid: 8583327393773d049b110221dd4e2c11,
+        type: 2}
+      propertyPath: doors.Array.data[2]
+      value: 
+      objectReference: {fileID: 765982927}
+    - target: {fileID: 114071004295280700, guid: 8583327393773d049b110221dd4e2c11,
+        type: 2}
+      propertyPath: doors.Array.data[3]
+      value: 
+      objectReference: {fileID: 661809791}
+    - target: {fileID: 114071004295280700, guid: 8583327393773d049b110221dd4e2c11,
+        type: 2}
+      propertyPath: pressureSwitches.Array.data[0]
+      value: 
+      objectReference: {fileID: 422610528}
+    - target: {fileID: 114071004295280700, guid: 8583327393773d049b110221dd4e2c11,
+        type: 2}
+      propertyPath: pressureSwitches.Array.data[1]
+      value: 
+      objectReference: {fileID: 1338229124}
     - target: {fileID: 224564414060201824, guid: 8583327393773d049b110221dd4e2c11,
         type: 2}
       propertyPath: m_LocalPosition.z
@@ -7548,31 +7578,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!1 &732645022 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1041238749337836, guid: 8583327393773d049b110221dd4e2c11,
-    type: 2}
-  m_PrefabInternal: {fileID: 191252533}
---- !u!114 &732645025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 732645022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7981252539e4c4aaaf5f232809aa3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  torchesGO: {fileID: 821534540}
-  doors:
-  - {fileID: 1213169460}
-  - {fileID: 1611796658}
-  - {fileID: 765982927}
-  - {fileID: 661809791}
-  pressureSwitches:
-  - {fileID: 422610528}
-  - {fileID: 1338229124}
 --- !u!43 &765041965
 Mesh:
   m_ObjectHideFlags: 0
@@ -23945,7 +23950,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh15568
+  m_Name: pb_Mesh45876
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -24261,7 +24266,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1532028487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.1, y: 0, z: 1.8}
+  m_LocalPosition: {x: -38.56, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1181374017}
@@ -34368,7 +34373,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2008058116}
-  splashTime: 3
 --- !u!4 &2008058118
 Transform:
   m_ObjectHideFlags: 0

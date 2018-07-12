@@ -28,13 +28,7 @@ public class SceneFader : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    // splash screen time (time it stays on screen for)
-    [SerializeField]
-    private float splashTime = 3f;
-
-
-
-
+    private GameController gameController;
 
     /*
 	*
@@ -45,11 +39,14 @@ public class SceneFader : MonoBehaviour
 
     // string of the scene to change to
     private string sceneToChangeTo;
-    
-    // the timer for the splash screen
-    private float splashTimer = 0f;
 
 
+    private void Awake()
+    {
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        gameController.SetNewScene(true);
+        Invoke("EnablePlayerControls", 2f);
+    }
 
 
 
@@ -68,31 +65,10 @@ public class SceneFader : MonoBehaviour
         SceneManager.LoadScene(sceneToChangeTo);
     }
 
-
-    // this function shows the splash screen
-    private void SplashScreen()
+    private void EnablePlayerControls()
     {
-        // if the curren scene is the splash screen
-        if(SceneManager.GetActiveScene().name.Equals("Splash"))
-        {
-            // increment the timer
-            splashTimer += Time.deltaTime;
-
-            // when the splash screen has been on screen for a set time
-            if(splashTimer >= splashTime)
-            {
-                // fade to the main menu
-                FadeIntoScene("MainMenu");
-            }
-        }
+        gameController.SetPlayerInputEnabled(true);
     }
 
 
-
-
-
-    private void Update()
-    {
-        SplashScreen();
-    }
 }
