@@ -36,7 +36,10 @@ public class StoneBlockInteract : MonoBehaviour
             {
                 if (isGrounded == true)
                 {
-                    GrabBlock();
+                    if(playerGrabTransform.childCount == 0)
+                    {
+                        GrabBlock();
+                    }
                 }
             }
         }
@@ -55,6 +58,11 @@ public class StoneBlockInteract : MonoBehaviour
 
         if (transform.parent == stoneBlocksTransform) isGrounded = true;
         else isGrounded = false;
+
+        if(isGrounded == false)
+        {
+            transform.localPosition = Vector3.zero;
+        }
     }
 
 
@@ -82,4 +90,11 @@ public class StoneBlockInteract : MonoBehaviour
         thisRB.isKinematic = false;
         Debug.Log("Place Block!");
     }
+
+
+    public bool Grounded()
+    {
+        return isGrounded;
+    }
+
 }
