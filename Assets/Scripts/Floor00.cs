@@ -37,6 +37,12 @@ public class Floor00 : Floor
                 door02Unlocked = true;
             }
         }
+
+        if(pressureSwitches[0].Activated() == false)
+        {
+            door02Unlocked = false;
+            doors[1].Lock();
+        }
         
     }
 
@@ -49,6 +55,12 @@ public class Floor00 : Floor
                 doors[2].Unlock();
                 door03Unlocked = true;
             }
+        }
+
+        if (pressureSwitches[1].Activated() == false)
+        {
+            door03Unlocked = false;
+            doors[2].Lock();
         }
     }
 

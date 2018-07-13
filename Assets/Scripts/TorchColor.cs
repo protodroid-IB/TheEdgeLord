@@ -21,6 +21,7 @@ public class TorchColor : MonoBehaviour
 
     private SphereCollider lightRangeCollider;
 
+    private bool justChanged = false;
 
     private void Start()
     {
@@ -103,12 +104,26 @@ public class TorchColor : MonoBehaviour
 
     public void ChangeColorState(string inState)
     {
-        if (inState == "LightBulletRed(Clone)") currentColorState = ColorState.Red;
-        else if (inState == "LightBulletOrange(Clone)") currentColorState = ColorState.Orange;
-        else if (inState == "LightBulletBlue(Clone)") currentColorState = ColorState.Blue;
-        else if (inState == "LightBulletGreen(Clone)") currentColorState = ColorState.Green;
-        else if (inState == "LightBulletPurple(Clone)") currentColorState = ColorState.Purple;
-        else if (inState == "LightBulletYellow(Clone)") currentColorState = ColorState.Yellow;
+        if (inState == "LightBulletRed(Clone)") { currentColorState = ColorState.Red; justChanged = true; }
+        else if (inState == "LightBulletOrange(Clone)") { currentColorState = ColorState.Orange; justChanged = true; }
+        else if (inState == "LightBulletBlue(Clone)") { currentColorState = ColorState.Blue; justChanged = true; }
+        else if (inState == "LightBulletGreen(Clone)") { currentColorState = ColorState.Green; justChanged = true; }
+        else if (inState == "LightBulletPurple(Clone)") { currentColorState = ColorState.Purple; justChanged = true; }
+        else if (inState == "LightBulletYellow(Clone)") { currentColorState = ColorState.Yellow; justChanged = true; }
+    }
+
+    public string GetColorState()
+    {
+        return currentColorState.ToString();
+    }
+
+    public bool JustChanged()
+    {
+        bool changed = justChanged;
+
+        justChanged = false;
+
+        return changed;
     }
 
 
