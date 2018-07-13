@@ -26,7 +26,6 @@ public class LightGun : MonoBehaviour
     // current color state
     private ColorState currentColorState = ColorState.Red;
 
-    [SerializeField]
     private Image uiColorImage;
 
 
@@ -39,6 +38,7 @@ public class LightGun : MonoBehaviour
         gunFire = gunProperties.GetGunFire();
         colorStateSize = System.Enum.GetNames(typeof(ColorState)).Length;
         gunProperties.SetBulletPrefab(bulletPrefabs[colorSelected]);
+        uiColorImage = GameObject.FindWithTag("BulletColourUI").GetComponent<Image>();
     }
 
 

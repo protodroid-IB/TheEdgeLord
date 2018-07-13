@@ -44,8 +44,7 @@ public class SceneFader : MonoBehaviour
     private void Awake()
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
-        gameController.SetNewScene(true);
-        gameController.NewScene();
+        gameController.GetFloorChanges().NewScene();
     }
 
 

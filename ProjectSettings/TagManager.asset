@@ -14,6 +14,7 @@ TagManager:
   - Torches
   - Doors
   - PressureSwitches
+  - BulletColourUI
   layers:
   - Default
   - TransparentFX

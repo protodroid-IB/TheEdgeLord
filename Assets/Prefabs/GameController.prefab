@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4942921546082474}
   - component: {fileID: 114786126052209194}
+  - component: {fileID: 114633494519236974}
+  - component: {fileID: 114359927841825712}
   - component: {fileID: 114071004295280700}
   - component: {fileID: 114489716910200388}
   - component: {fileID: 114619157603835668}
@@ -127,7 +129,7 @@ GameObject:
   - component: {fileID: 114344320974186870}
   m_Layer: 5
   m_Name: BulletColour
-  m_TagString: Untagged
+  m_TagString: BulletColourUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,15 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7981252539e4c4aaaf5f232809aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStart: {fileID: 0}
+  playerEnd: {fileID: 0}
   torchesGO: {fileID: 0}
-  doors:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  pressureSwitches:
-  - {fileID: 0}
-  - {fileID: 0}
+  doorsGO: {fileID: 0}
+  pressureSwitchesGO: {fileID: 0}
 --- !u!114 &114156828513769188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,18 +269,44 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114359927841825712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041238749337836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c33b81f515303419aa140eeb84bb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114489716910200388
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1041238749337836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: feb5f62e8b0f8424bb06eda32cee14cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStart: {fileID: 0}
+  playerEnd: {fileID: 0}
 --- !u!114 &114619157603835668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041238749337836}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813ae532d861d9b4fae2fbc8ba0b38a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStart: {fileID: 0}
+  playerEnd: {fileID: 0}
+--- !u!114 &114633494519236974
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -290,7 +314,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1041238749337836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 813ae532d861d9b4fae2fbc8ba0b38a4, type: 3}
+  m_Script: {fileID: 11500000, guid: d6a5dd603b2b2e845b4b8fdff655fd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114662609174515342
@@ -365,11 +389,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1041238749337836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 835686a2164649e458b3a04ce9a4bb9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStart: {fileID: 0}
+  playerEnd: {fileID: 0}
 --- !u!114 &114786126052209194
 MonoBehaviour:
   m_ObjectHideFlags: 1

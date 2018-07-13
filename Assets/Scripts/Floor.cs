@@ -10,8 +10,7 @@ public class Floor : MonoBehaviour
 
     private void OnEnable()
     {
-        playerStart = GameObject.FindWithTag("Start").transform;
-        playerEnd = GameObject.FindWithTag("End").transform;
+        GrabPlayerSpawnPositions();
     }
 
     public Transform GetStartTransform()
@@ -23,4 +22,13 @@ public class Floor : MonoBehaviour
     {
         return playerEnd;
     }
+
+
+    public void GrabPlayerSpawnPositions()
+    {
+        playerStart = GameObject.FindWithTag("Start").transform;
+        playerEnd = GameObject.FindWithTag("End").transform;
+    }
+
+    
 }
