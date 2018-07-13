@@ -12,10 +12,14 @@ public class TorchSwitch : MonoBehaviour
     [SerializeField]
     private GameObject fireParticlesGO;
 
+    private GameObject lightHitColliderGO;
+
 
     private void Start()
     {
-        if(torchOn == false)
+        lightHitColliderGO = transform.GetChild(2).gameObject;
+
+        if (torchOn == false)
         {
             Off();
         }
@@ -26,6 +30,7 @@ public class TorchSwitch : MonoBehaviour
     {
         torchOn = true;
         fireParticlesGO.SetActive(torchOn);
+        lightHitColliderGO.SetActive(true);
     } 
 
     // turns the torch off
@@ -33,6 +38,7 @@ public class TorchSwitch : MonoBehaviour
     {
         torchOn = false;
         fireParticlesGO.SetActive(torchOn);
+        lightHitColliderGO.SetActive(false);
     }
 
     // grabs the torch state 

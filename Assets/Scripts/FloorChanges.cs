@@ -22,6 +22,10 @@ public class FloorChanges : MonoBehaviour
     private GameController gameController;
 
 
+
+
+
+
     // Use this for initialization
     void Awake()
     {
@@ -32,6 +36,9 @@ public class FloorChanges : MonoBehaviour
 
         NewScene();
     }
+
+
+
 
 
 
@@ -47,6 +54,9 @@ public class FloorChanges : MonoBehaviour
 
         Invoke("EnablePlayerControls", 1.5f);
     }
+
+
+
 
 
 
@@ -100,10 +110,11 @@ public class FloorChanges : MonoBehaviour
 
 
 
+
+
+
     public void FindPlayerPosition(string currentScene)
     {
-        Debug.Log("CURRENT SCENE: " + currentScene + "\tLAST SCENE: " + lastScene);
-
         switch (lastScene)
         {
             case "Floor00":

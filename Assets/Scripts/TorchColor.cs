@@ -19,7 +19,18 @@ public class TorchColor : MonoBehaviour
 
     [SerializeField] private Light flameLight;
 
+    private SphereCollider lightRangeCollider;
 
+
+    private void Start()
+    {
+        float lightRange = 15f;
+
+        lightRangeCollider = transform.GetChild(2).GetComponent<SphereCollider>();
+
+        flameLight.range = lightRange;
+        lightRangeCollider.radius = lightRange;
+    }
 
 
     // Update is called once per frame

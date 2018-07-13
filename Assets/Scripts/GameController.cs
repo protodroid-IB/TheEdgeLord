@@ -14,11 +14,18 @@ public class GameController : MonoBehaviour
 
     private GameObject playerGO;
 
+
+
+
     private void Awake()
     {
         playerGO = GameObject.FindWithTag("Player");
         fpsController = playerGO.GetComponent<FirstPersonController>();
     }
+
+
+
+
 
 
     // Update is called once per frame
@@ -29,6 +36,8 @@ public class GameController : MonoBehaviour
         if (disablePlayerInput == true) fpsController.enabled = false;
         else fpsController.enabled = true;
 	}
+
+
 
 
 

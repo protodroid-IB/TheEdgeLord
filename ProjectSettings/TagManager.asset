@@ -15,6 +15,7 @@ TagManager:
   - Doors
   - PressureSwitches
   - BulletColourUI
+  - LightRangeCollider
   layers:
   - Default
   - TransparentFX
