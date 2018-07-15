@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 54863193529002568}
   - component: {fileID: 114042486139225554}
   - component: {fileID: 114887062912654738}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LitBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4940004168593372}
   - component: {fileID: 135191201426158828}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LightRangeCollider
   m_TagString: LightRangeColliderBlock
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4094564081340426}
   - component: {fileID: 108167815655629738}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 33695299584929740}
   - component: {fileID: 114952956938198114}
   - component: {fileID: 64670759526321036}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StoneBlockModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

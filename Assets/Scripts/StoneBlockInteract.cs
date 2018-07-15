@@ -34,11 +34,16 @@ public class StoneBlockInteract : MonoBehaviour
         {
             if (playerInteract.Interact())
             {
-                if (isGrounded == true)
+                if (playerInteract.InteractedUpon().name == gameObject.name)
                 {
-                    if(playerGrabTransform.childCount == 0)
+                    Debug.Log(playerInteract.InteractedUpon().name + "\t=\t" + gameObject.name);
+
+                    if (isGrounded == true)
                     {
-                        GrabBlock();
+                        if (playerGrabTransform.childCount == 0)
+                        {
+                            GrabBlock();
+                        }
                     }
                 }
             }

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114084964272247848}
   - component: {fileID: 65473230159079272}
   - component: {fileID: 54104747505626454}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StoneBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 33844267299588402}
   - component: {fileID: 114036315642185858}
   - component: {fileID: 64231926343780506}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StoneBlockModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,6 +8,9 @@ public class PlayerInteract : MonoBehaviour
 
     private bool interact = false;
 
+    [SerializeField]
+    private GunAim gunAim;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -21,7 +24,6 @@ public class PlayerInteract : MonoBehaviour
         {
             if(Input.GetButtonDown("Interact"))
             {
-                Debug.Log("Interact!");
                 interact = true;
             }
             else
@@ -34,5 +36,10 @@ public class PlayerInteract : MonoBehaviour
     public bool Interact()
     {  
         return interact;
+    }
+
+    public GameObject InteractedUpon()
+    {
+        return gunAim.GetGameObjectHit();
     }
 }

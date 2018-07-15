@@ -21,6 +21,7 @@ TagManager:
   - MovingPlatforms
   - PlatformEnd
   - PlatformStart
+  - TimedTorches
   layers:
   - Default
   - TransparentFX

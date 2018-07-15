@@ -13,12 +13,17 @@ public class GunAim : MonoBehaviour
 
     private float fireRange = 150f;
 
+    private GameObject gameObjectHit;
+
+    private GameObject emptyGO;
 
     public void Start()
     {
         gunProperties = GetComponent<GunProperties>();
         fpsCam = Camera.main;
         lineOfSight = GetComponent<LineRenderer>();
+
+        emptyGO = new GameObject();
     }
 
     private void Update()
@@ -49,12 +54,12 @@ public class GunAim : MonoBehaviour
         if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, gunProperties.GetFireRange()))
         {
             fireDirectionPoint = hit.point;
-  
+            gameObjectHit = hit.transform.gameObject;
         }
         else
         {
             fireDirectionPoint = rayOrigin + (fpsCam.transform.forward * gunProperties.GetFireRange());
-
+            gameObjectHit = emptyGO;
         }
 
 
@@ -69,6 +74,12 @@ public class GunAim : MonoBehaviour
         {
             if(lineOfSight == true) lineOfSight.enabled = false;
         }
+    }
+
+
+    public GameObject GetGameObjectHit()
+    {
+        return gameObjectHit;
     }
 
 }

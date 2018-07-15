@@ -138,8 +138,6 @@ public class RevealPlatform : MonoBehaviour
         // collided with torch range collider
         if (other.gameObject.tag == "LightRangeCollider")
         {
-            Debug.Log("COLLIDED!");
-
             // add both torch scripts to lists for later use
             TorchColor thisTorchColor = other.transform.parent.GetComponent<TorchColor>();
             TorchSwitch thisTorchSwitch = other.transform.parent.GetComponent<TorchSwitch>();
@@ -174,7 +172,6 @@ public class RevealPlatform : MonoBehaviour
             // if torch within distance to reveal message
             if (torchDistance <= platformRevealRange)
             {
-                Debug.Log("In Range!");
                 // if the torch is on
                 if (torchesSwitch[i].GetTorchState())
                 {
