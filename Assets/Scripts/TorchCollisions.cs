@@ -20,7 +20,6 @@ public class TorchCollisions : MonoBehaviour
         
         if (collider.gameObject.CompareTag("LightBullet"))
         {
-            //Debug.Log(collider.gameObject.name);
 
             if (torchSwitchScript.GetTorchState() == false)
             {

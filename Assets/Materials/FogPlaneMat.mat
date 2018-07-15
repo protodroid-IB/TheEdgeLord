@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: FogPlaneMat
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -98,7 +98,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _InvFade: 0.32
+    - _InvFade: 0.03
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -136,6 +136,6 @@ Material:
     - _ReflectionColor: {r: 0.54, g: 0.95, b: 0.99, a: 0.5}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SpecularColor: {r: 0.72, g: 0.72, b: 0.72, a: 1}
-    - _TintColor: {r: 0.028301895, g: 0.027367398, b: 0.027367398, a: 0.22745098}
+    - _TintColor: {r: 0.028301895, g: 0.027367398, b: 0.027367398, a: 1}
     - _WorldLightDir: {r: 0, g: 0.1, b: -0.5, a: 0}
     - _horizonColor: {r: 0.172, g: 0.463, b: 0.435, a: 0}

@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 0.241
+  m_ReflectionIntensity: 0.55
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18163127, g: 0.18584335, b: 0.1736764, a: 0.241}
+  m_IndirectSpecularColor: {r: 0.27872047, g: 0.28466073, b: 0.26750174, a: 0.55}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000128, guid: 440aaf1476213e44aad27bf2e46aaa9f,
+  m_LightingDataAsset: {fileID: 112000074, guid: ab26b8d59a223f545bc520cc72f58ba4,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -5273,6 +5273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealWhen: 2
   messageRevealRange: 12
+  messageRevealed: 0
 --- !u!54 &611899914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7861,11 +7862,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4746629565976682, guid: e880084a48492f246923b807c4302160, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -19.5
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 4746629565976682, guid: e880084a48492f246923b807c4302160, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 36.2
+      value: -48.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e880084a48492f246923b807c4302160, type: 2}
@@ -8245,6 +8246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealWhen: 1
   messageRevealRange: 12
+  messageRevealed: 0
 --- !u!54 &746123285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11400,6 +11402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealWhen: 3
   messageRevealRange: 12
+  messageRevealed: 0
 --- !u!54 &891053614
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11977,6 +11980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealWhen: 3
   messageRevealRange: 12
+  messageRevealed: 0
 --- !u!54 &946369976
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20379,6 +20383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealWhen: 3
   messageRevealRange: 12
+  messageRevealed: 0
 --- !u!54 &1190686262
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35631,6 +35636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealWhen: 1
   messageRevealRange: 12
+  messageRevealed: 0
 --- !u!54 &1918184061
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35914,6 +35920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealWhen: 3
   messageRevealRange: 12
+  messageRevealed: 0
 --- !u!54 &1933489116
 Rigidbody:
   m_ObjectHideFlags: 0
