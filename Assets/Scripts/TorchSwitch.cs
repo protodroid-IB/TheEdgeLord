@@ -15,7 +15,7 @@ public class TorchSwitch : MonoBehaviour
     private GameObject lightHitColliderGO;
 
 
-    private void Start()
+    private void Awake()
     {
         lightHitColliderGO = transform.GetChild(2).gameObject;
 

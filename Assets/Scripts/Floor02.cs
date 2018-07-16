@@ -15,6 +15,8 @@ public class Floor02 : Floor
 
     private TorchSwitch torch;
 
+    private bool reachedDoor = false; 
+
     private bool door07Unlocked = false;
 
     [SerializeField]
@@ -51,7 +53,9 @@ public class Floor02 : Floor
 
     private void UnlockDoor07()
     {
-        if(torch.GetTorchState())
+        if (torch == null) UpdateLevelStartVariables();
+
+        if(torch.GetTorchState() || reachedDoor == true)
         {
             door07Unlocked = true;
         }
@@ -90,6 +94,8 @@ public class Floor02 : Floor
 
     private void UpdateLevelStartVariables()
     {
+        GrabPlayerSpawnPositions();
+
         timedTorchesGO = GameObject.FindWithTag("TimedTorches");
         doorsGO = GameObject.FindWithTag("Doors");
 

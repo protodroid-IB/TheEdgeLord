@@ -7,6 +7,8 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField]
     private float bulletSpeed = 4f, deathTime = 5f;
 
+    private bool moveBullet = true;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -16,7 +18,7 @@ public class BulletBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        Move();
+        if(moveBullet) Move();
         Kill();
     }
 
@@ -29,4 +31,22 @@ public class BulletBehaviour : MonoBehaviour
     {
         Destroy(gameObject, deathTime);
     }
+
+    public void SetMoveBullet(bool inMove)
+    {
+        moveBullet = inMove;
+    }
+
+    public void DecreaseSpeed(float inAcceleration)
+    {
+        bulletSpeed -= inAcceleration * Time.deltaTime;
+    }
+
+    public float GetSpeed()
+    {
+        return bulletSpeed;
+    }
+
+
+   
 }

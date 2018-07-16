@@ -22,6 +22,9 @@ TagManager:
   - PlatformEnd
   - PlatformStart
   - TimedTorches
+  - CountdownTimer
+  - Walls
+  - BulletStickCollision
   layers:
   - Default
   - TransparentFX

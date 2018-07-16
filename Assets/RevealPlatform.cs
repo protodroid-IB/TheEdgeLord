@@ -21,6 +21,8 @@ public class RevealPlatform : MonoBehaviour
     [SerializeField]
     private bool platformRevealed = false;
 
+    [SerializeField]
+    private bool alphaOneToZero = false;
 
     private float alpha = 0f;
 
@@ -35,7 +37,8 @@ public class RevealPlatform : MonoBehaviour
         torchesColor = new List<TorchColor>();
         torchesSwitch = new List<TorchSwitch>();
 
-        alpha = 0f;
+        if (alphaOneToZero == false) alpha = 0f;
+        else alpha = 1f;
 
         Color newColor = new Color(platformMR.material.color.r, platformMR.material.color.g, platformMR.material.color.b, alpha);
 
@@ -49,7 +52,8 @@ public class RevealPlatform : MonoBehaviour
 
     private void Update()
     {
-        FadeAlphaToZero();
+        if (alphaOneToZero == false) FadeAlphaToZero();
+        else FadeAlphaToOne();
 
         RevealFromTorch();
 
@@ -73,6 +77,11 @@ public class RevealPlatform : MonoBehaviour
         alpha -= platformRevealRate * Time.deltaTime;
     }
 
+    private void FadeAlphaToOne()
+    {
+        alpha += platformRevealRate * Time.deltaTime;
+    }
+
     private void ClampAlpha()
     {
         if (alpha >= 1f) alpha = 1f;
@@ -83,9 +92,12 @@ public class RevealPlatform : MonoBehaviour
     {
         Color newColor = new Color(platformMR.material.color.r, platformMR.material.color.g, platformMR.material.color.b, alpha);
         Material newMaterial = new Material(platformMR.material);
+        newMaterial.name = "INIVISBLE PLATFORM MAT";
         newMaterial.color = newColor;
 
         platformMR.material = newMaterial;
+
+
     }
 
 
@@ -196,6 +208,7 @@ public class RevealPlatform : MonoBehaviour
         // if in the light range of a bullet
         if (other.gameObject.tag == "LightBulletRange")
         {
+            Debug.Log("COLLIDED!");
             // if the bullet is close enough to the message
             float bulletDistance = Distance(other.transform.parent.position);
 
@@ -208,7 +221,8 @@ public class RevealPlatform : MonoBehaviour
                 {
                     float distanceRatio = (platformRevealRange - bulletDistance) / platformRevealRange;
 
-                    alpha += distanceRatio * platformRevealRate * 2f * Time.deltaTime;
+                    if(alphaOneToZero == false) alpha += distanceRatio * platformRevealRate * 2f * Time.deltaTime;
+                    else alpha -= distanceRatio * platformRevealRate * 2f * Time.deltaTime;
                 }
             }
         }

@@ -130,6 +130,8 @@ public class Floor01 : Floor
 
     private void UpdateLevelStartVariables()
     {
+        GrabPlayerSpawnPositions();
+
         torchesGO = GameObject.FindWithTag("Torches");
         doorsGO = GameObject.FindWithTag("Doors");
         messagesGO = GameObject.FindWithTag("Messages");

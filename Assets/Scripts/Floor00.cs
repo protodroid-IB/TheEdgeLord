@@ -91,6 +91,8 @@ public class Floor00 : Floor
 
     private void UpdateLevelStartVariables()
     {
+        GrabPlayerSpawnPositions();
+
         torchesGO = GameObject.FindWithTag("Torches");
         doorsGO = GameObject.FindWithTag("Doors");
         pressureSwitchesGO = GameObject.FindWithTag("PressureSwitches");

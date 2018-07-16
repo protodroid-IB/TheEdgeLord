@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TimedTorch : MonoBehaviour
 {
+
     [SerializeField]
     private float onTime = 30f;
 
@@ -20,11 +21,12 @@ public class TimedTorch : MonoBehaviour
     [SerializeField]
     private bool startTimer = false;
 
-
-    [SerializeField]
     private Text countDown;
 
     private TorchSwitch torchSwitch;
+
+    private TimedTorchGoal goal;
+    private bool goalReached = false;
 
 	// Use this for initialization
 	void Start ()
@@ -33,15 +35,29 @@ public class TimedTorch : MonoBehaviour
         audioTimer = audioTimeBetweenTicks;
 
         torchSwitch = GetComponent<TorchSwitch>();
+
+        countDown = GameObject.FindWithTag("CountdownTimer").GetComponent<Text>();
+        countDown.text = "";
+
+        goal = transform.GetChild(3).GetComponent<TimedTorchGoal>();
+
+        torchSwitch.Off();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if (goal.GetGoalReached())
+        {
+            goalReached = true;
+            countDown.text = "";
+        }
+        else goalReached = false;
+
         if (torchSwitch.GetTorchState()) startTimer = true;
 
 
-        if (startTimer == true)
+        if (startTimer == true && goalReached == false)
         {
             timer -= Time.deltaTime;
             audioTimer -= Time.deltaTime;
@@ -62,6 +78,7 @@ public class TimedTorch : MonoBehaviour
                 torchSwitch.Off();
                 audioTimer = audioTimeBetweenTicks;
                 timer = onTime;
+                countDown.text = "";
             }
         }
 	}
@@ -70,5 +87,10 @@ public class TimedTorch : MonoBehaviour
     public bool GetActivated()
     {
         return startTimer;
+    }
+
+    public bool GetGoalReached()
+    {
+        return goalReached;
     }
 }

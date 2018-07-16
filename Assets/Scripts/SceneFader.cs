@@ -64,5 +64,10 @@ public class SceneFader : MonoBehaviour
         SceneManager.LoadScene(sceneToChangeTo);
     }
 
+    public void RestartScene()
+    {
+        FadeIntoScene(SceneManager.GetActiveScene().name);
+    }
+
 
 }
