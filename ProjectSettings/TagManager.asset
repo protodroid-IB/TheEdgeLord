@@ -25,6 +25,7 @@ TagManager:
   - CountdownTimer
   - Walls
   - BulletStickCollision
+  - BulletStickCollisionFloor
   layers:
   - Default
   - TransparentFX

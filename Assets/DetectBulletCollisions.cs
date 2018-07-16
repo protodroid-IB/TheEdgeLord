@@ -44,7 +44,6 @@ public class DetectBulletCollisions : MonoBehaviour
             }
         }
 
-        Debug.Log(bulletBehaviour.GetSpeed());
     }
 
 }

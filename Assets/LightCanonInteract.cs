@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoneBlockInteract : MonoBehaviour
+public class LightCanonInteract : MonoBehaviour
 {
     [SerializeField]
     private PlayerInteract playerInteract;
@@ -30,13 +30,12 @@ public class StoneBlockInteract : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             if (playerInteract.Interact())
             {
                 if (playerInteract.InteractedUpon().name == gameObject.name)
                 {
-
                     if (isGrounded == true)
                     {
                         if (playerGrabTransform.childCount == 0)
@@ -63,9 +62,10 @@ public class StoneBlockInteract : MonoBehaviour
         if (transform.parent == stoneBlocksTransform) isGrounded = true;
         else isGrounded = false;
 
-        if(isGrounded == false)
+        if (isGrounded == false)
         {
             transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.Euler(Vector3.zero);
         }
     }
 
@@ -86,7 +86,7 @@ public class StoneBlockInteract : MonoBehaviour
 
 
 
-    private void PlaceBlock()
+    public void PlaceBlock()
     {
         playerGunGO.SetActive(true);
         transform.SetParent(stoneBlocksTransform);
