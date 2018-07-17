@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TorchCanonColorCollisions : MonoBehaviour
+{
+
+    private LightCanonColor blockLightColor;
+
+    [SerializeField]
+    private LightCanonInteract lightCanonInteract;
+
+    // Use this for initialization
+    void Start()
+    {
+        blockLightColor = transform.parent.GetComponent<LightCanonColor>();
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("LightBullet"))
+        {
+            blockLightColor.ChangeColorState(collider.gameObject.name);
+        }
+
+        if (collider.transform.CompareTag("BulletStickCollision"))
+        {
+            lightCanonInteract.PlaceBlock();
+        }
+    }
+}

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4663895217150950}
   - component: {fileID: 108101460457091224}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4892432738871850}
   - component: {fileID: 135710925010821840}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Range
   m_TagString: LightBulletRange
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!108 &108101460457091224
 Light:
   m_ObjectHideFlags: 1

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114998099937044784}
   - component: {fileID: 64244024334960348}
   - component: {fileID: 54096517017521060}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ColliderField
   m_TagString: BulletStickCollision
   m_Icon: {fileID: 0}
