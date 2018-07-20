@@ -26,6 +26,9 @@ TagManager:
   - Walls
   - BulletStickCollision
   - BulletStickCollisionFloor
+  - LightBeam
+  - BeamCast
+  - intersectCube
   layers:
   - Default
   - TransparentFX
