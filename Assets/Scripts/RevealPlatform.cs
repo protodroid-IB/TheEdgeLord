@@ -208,7 +208,6 @@ public class RevealPlatform : MonoBehaviour
         // if in the light range of a bullet
         if (other.gameObject.tag == "LightBulletRange")
         {
-            Debug.Log("COLLIDED!");
             // if the bullet is close enough to the message
             float bulletDistance = Distance(other.transform.parent.position);
 

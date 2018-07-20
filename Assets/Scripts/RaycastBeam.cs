@@ -83,6 +83,16 @@ public class RaycastBeam : MonoBehaviour
                     if (otherBeam.CompareTag("BeamCast") && intersectCube == null)
                     {
                         Debug.Log(transform.parent.name + "  - CREATE CUBE!");
+                        intersectCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                        intersectCube.transform.position = hit.point + raycastDirection * 0.5f;
+                        intersectCube.transform.rotation = transform.rotation;
+                        intersectCube.GetComponent<Collider>().isTrigger = true;
+                        intersectCube.layer = 0;
+                        intersectCube.tag = "intersectCube";
+                        intersectCubeScript = intersectCube.AddComponent<IntersectCube>();
+
+
+
                         /*intersectCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                         intersectCube.transform.position = hit.point + raycastDirection * 0.5f;
                         intersectCube.transform.rotation = transform.rotation;
@@ -91,15 +101,15 @@ public class RaycastBeam : MonoBehaviour
                         intersectCube.tag = "intersectCube";
                         intersectCubeScript = intersectCube.AddComponent<IntersectCube>();*/
 
-                        
+
 
                         otherBeam.GetComponent<RaycastBeam>().SetIntersectCube(intersectCube);
                         SetIntersectCube(intersectCube);
 
-                        
+                        intersectCubeScript.AddNumIntersects();
                         //intersectCubeScript.AddNumIntersects();
 
-                        
+
                     }
                 }
             }
@@ -196,5 +206,16 @@ public class RaycastBeam : MonoBehaviour
     public void SetIntersectCube(GameObject inIntersectCube)
     {
         intersectCube = inIntersectCube;
+    }
+
+
+
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.transform.CompareTag("BeamCast"))
+        {
+
+        }
     }
 }
