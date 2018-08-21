@@ -15,7 +15,6 @@ public class LightCanonLightFace : MonoBehaviour
     private Material normalMat;
 
     private MeshRenderer[] facesMR;
-    private MeshRenderer[] beamsMR;
 
     private bool beamActive = false;
 
@@ -23,15 +22,11 @@ public class LightCanonLightFace : MonoBehaviour
 	void Start ()
     {
         facesMR = new MeshRenderer[transform.childCount];
-        beamsMR = new MeshRenderer[transform.childCount];
 
         for(int i=0; i < facesMR.Length; i++)
         {
             facesMR[i] = transform.GetChild(i).GetComponent<MeshRenderer>();
             facesMR[i].material = normalMat;
-
-            beamsMR[i] = facesMR[i].transform.GetChild(1).GetComponent<MeshRenderer>();
-            beamsMR[i].material = normalMat;
         }
 	}
 	
@@ -59,14 +54,11 @@ public class LightCanonLightFace : MonoBehaviour
         {
             facesMR[i].material = normalMat;
             facesMR[i].transform.GetChild(0).gameObject.SetActive(false);
-            facesMR[i].transform.GetChild(1).gameObject.SetActive(false);
 
             if (facesMR[i].name == hitFace.name)
             {
                 facesMR[i].material = inFaceMat;
-                beamsMR[i].material = inBeamMat;
                 hitFace.transform.GetChild(0).gameObject.SetActive(true);
-                hitFace.transform.GetChild(1).gameObject.SetActive(true);
             }
         }
     }

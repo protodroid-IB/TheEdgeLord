@@ -36,7 +36,6 @@ public class StoneBlockInteract : MonoBehaviour
             {
                 if (playerInteract.InteractedUpon().name == gameObject.name)
                 {
-
                     if (isGrounded == true)
                     {
                         if (playerGrabTransform.childCount == 0)
@@ -51,6 +50,8 @@ public class StoneBlockInteract : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(isGrounded);
+
         if (playerInteract.Interact())
         {
             if (isGrounded == false)
@@ -99,6 +100,12 @@ public class StoneBlockInteract : MonoBehaviour
     public bool Grounded()
     {
         return isGrounded;
+    }
+
+
+    private void CanGrabAgain()
+    {
+        isGrounded = true;
     }
 
 }

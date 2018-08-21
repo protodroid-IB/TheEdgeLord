@@ -6,8 +6,8 @@ public class LitBlockColorCollisions : MonoBehaviour
 {
     private BlockLightColor blockLightColor;
 
-    [SerializeField]
-    private LightCanonInteract lightCanonInteract;
+    //[SerializeField]
+    //private LightCanonInteract lightCanonInteract;
 
 	// Use this for initialization
 	void Start ()
@@ -22,9 +22,9 @@ public class LitBlockColorCollisions : MonoBehaviour
             blockLightColor.ChangeColorState(collider.gameObject.name);
         }
 
-        if (collider.transform.CompareTag("BulletStickCollision"))
-        {
-            lightCanonInteract.PlaceBlock();
-        }
+        //if (collider.transform.CompareTag("BulletStickCollision"))
+        //{
+        //    lightCanonInteract.PlaceBlock();
+        //}
     }
 }
