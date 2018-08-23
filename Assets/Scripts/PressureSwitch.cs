@@ -16,8 +16,15 @@ public class PressureSwitch : MonoBehaviour
 
     private Material[] mats;
 
+    private AudioSource thisAudio;
+
+    [SerializeField]
+    private AudioClip activateSound, deactivateSound;
+
     private void Start()
     {
+        thisAudio = GetComponent<AudioSource>();
+        
         originalSwitchMat = switchMR.materials[1];
 
         mats = new Material[switchMR.materials.Length];
@@ -64,6 +71,8 @@ public class PressureSwitch : MonoBehaviour
         activated = true;
         mats[1] = onSwitchMat;
         switchMR.materials = mats;
+        thisAudio.clip = activateSound;
+        thisAudio.Play();
     }
 
     private void Deactivate()
@@ -71,6 +80,8 @@ public class PressureSwitch : MonoBehaviour
         activated = false;
         mats[1] = originalSwitchMat;
         switchMR.materials = mats;
+        thisAudio.clip = deactivateSound;
+        thisAudio.Play();
     }
 
 

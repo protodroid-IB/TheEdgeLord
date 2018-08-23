@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 54760392418133152}
   - component: {fileID: 82690946382968026}
   - component: {fileID: 114051195413552472}
+  - component: {fileID: 167745380346986576}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3387,3 +3388,26 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!167 &167745380346986576
+AudioReverbZone:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1698215831094390}
+  m_Enabled: 1
+  m_MinDistance: 0.5
+  m_MaxDistance: 5
+  m_ReverbPreset: 9
+  m_Room: -1000
+  m_RoomHF: 0
+  m_DecayTime: 2.91
+  m_DecayHFRatio: 1.3
+  m_Reflections: -602
+  m_ReflectionsDelay: 0.015
+  m_Reverb: -302
+  m_ReverbDelay: 0.022
+  m_HFReference: 5000
+  m_Diffusion: 100
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
