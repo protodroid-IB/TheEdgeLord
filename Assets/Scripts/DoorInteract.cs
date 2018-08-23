@@ -39,8 +39,15 @@ public class DoorInteract : MonoBehaviour
             {
                 if (doorSwitch.isClosed()) doorSwitch.Open();
                 else if (doorSwitch.isOpen()) doorSwitch.Close();          
-            }
+            }   
+        }
+    }
 
+
+    private void Update()
+    {
+        if(playerInteract.InteractReleased())
+        {
             interacted = false;
         }
     }

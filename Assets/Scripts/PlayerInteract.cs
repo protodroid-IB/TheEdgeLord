@@ -52,4 +52,10 @@ public class PlayerInteract : MonoBehaviour
     {
         return gunAim.GetGameObjectHit();
     }
+
+    public bool InteractReleased()
+    {
+        if (Input.GetButtonUp("Interact")) return true;
+        else return false;
+    }
 }
