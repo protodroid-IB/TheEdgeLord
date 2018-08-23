@@ -14,10 +14,18 @@ public class DoorSwitch : MonoBehaviour
     [SerializeField]
     private GameObject doorGO, lockedBarsGO;
 
+    private AudioSource thisAudio;
 
-	
-	// Update is called once per frame
-	void Update ()
+    [SerializeField]
+    private AudioClip switchSound, lockUnlockSound;
+
+    private void Start()
+    {
+        thisAudio = GetComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         DoorStateSwitch();
 
@@ -76,22 +84,40 @@ public class DoorSwitch : MonoBehaviour
     {
         Debug.Log("DOOR OPEN!");
         currentDoorState = State.Open;
+        thisAudio.clip = switchSound;
+        thisAudio.Play();
     }
 
     public void Close()
     {
         Debug.Log("DOOR CLOSE!");
         currentDoorState = State.Closed;
+        thisAudio.clip = switchSound;
+        thisAudio.Play();
     }
 
     public void Lock()
     {
+        if (currentDoorState != State.Locked && thisAudio.clip != lockUnlockSound)
+        {
+            thisAudio.clip = lockUnlockSound;
+            thisAudio.Play();
+        }
+
         currentDoorState = State.Locked;
+
+        
+
     }
 
     public void Unlock()
     {
         currentDoorState = State.Closed;
+        if (thisAudio.clip != lockUnlockSound)
+        {
+            thisAudio.clip = lockUnlockSound;
+            thisAudio.Play();
+        }
     }
 
     public bool isLocked()
