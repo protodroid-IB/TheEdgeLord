@@ -20,6 +20,8 @@ public class StoneBlockInteract : MonoBehaviour
 
     private Rigidbody thisRB;
 
+    private bool interacted = false;
+
 
 
     private void Start()
@@ -40,7 +42,11 @@ public class StoneBlockInteract : MonoBehaviour
                     {
                         if (playerGrabTransform.childCount == 0)
                         {
-                            GrabBlock();
+                            if(interacted == false)
+                            {
+                                GrabBlock();
+                            }
+                            
                         }
                     }
                 }
@@ -52,11 +58,21 @@ public class StoneBlockInteract : MonoBehaviour
     {
         Debug.Log(isGrounded);
 
+        if(playerInteract.InteractReleased())
+        {
+            interacted = false;
+        }
+
+
         if (playerInteract.Interact())
         {
             if (isGrounded == false)
             {
-                PlaceBlock();
+                if(interacted == false)
+                {
+                    PlaceBlock();
+                }
+                
             }
         }
 
@@ -81,6 +97,7 @@ public class StoneBlockInteract : MonoBehaviour
         transform.localPosition = Vector3.zero;
         thisRB.useGravity = false;
         thisRB.isKinematic = true;
+        interacted = true;
         Debug.Log("Grab Block!");
     }
 
@@ -93,6 +110,7 @@ public class StoneBlockInteract : MonoBehaviour
         transform.SetParent(stoneBlocksTransform);
         thisRB.useGravity = true;
         thisRB.isKinematic = false;
+        interacted = true;
         Debug.Log("Place Block!");
     }
 
