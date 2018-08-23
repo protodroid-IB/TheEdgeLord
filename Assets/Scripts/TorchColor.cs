@@ -19,9 +19,21 @@ public class TorchColor : MonoBehaviour
 
     [SerializeField] private Light flameLight;
 
+    [SerializeField]
+    private GameObject cage;
+
+    [SerializeField]
+    private bool canChangeColour = true;
+
     private SphereCollider lightRangeCollider;
 
     private bool justChanged = false;
+
+    private TorchSwitch thisTorch;
+
+    private bool justTurnedOn = false;
+
+    private AudioSource changeSound;
 
     private void Start()
     {
@@ -31,6 +43,13 @@ public class TorchColor : MonoBehaviour
 
         flameLight.range = lightRange;
         lightRangeCollider.radius = lightRange;
+
+        thisTorch = GetComponent<TorchSwitch>();
+
+        if (canChangeColour == true)
+            cage.SetActive(false);
+
+        changeSound = GetComponent<AudioSource>();
     }
 
 
@@ -96,13 +115,57 @@ public class TorchColor : MonoBehaviour
 
     public void ChangeFlame(Material inMat)
     {
-        ChangeMaterial(inMat);
-        ChangeLightColor(inMat);
+        if(thisTorch.GetTorchState() == false)
+        {
+            ChangeMaterial(inMat);
+            ChangeLightColor(inMat);
+        }
+        else
+        {
+            if (canChangeColour == true)
+            {
+                ChangeMaterial(inMat);
+                ChangeLightColor(inMat);
+            }
+            else
+            {
+                if(justTurnedOn == false)
+                {
+                    ChangeMaterial(inMat);
+                    ChangeLightColor(inMat);
+                    justTurnedOn = true;
+                }
+            }
+        }   
     }
 
     
 
     public void ChangeColorState(string inState)
+    {
+        if (thisTorch.GetTorchState() == false)
+        {
+            SwitchToState(inState);
+        }
+        else
+        {
+            if (canChangeColour == true)
+            {
+                SwitchToState(inState);
+                changeSound.Play();
+            }
+            else
+            {
+                if (justTurnedOn == false)
+                {
+                    SwitchToState(inState);
+                    justTurnedOn = true;
+                }
+            }
+        }
+    }
+
+    private void SwitchToState(string inState)
     {
         if (inState == "LightBulletRed(Clone)") { currentColorState = ColorState.Red; justChanged = true; }
         else if (inState == "LightBulletOrange(Clone)") { currentColorState = ColorState.Orange; justChanged = true; }

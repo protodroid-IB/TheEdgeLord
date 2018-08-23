@@ -10,6 +10,8 @@ public class DoorInteract : MonoBehaviour
     [SerializeField]
     private PlayerInteract playerInteract;
 
+    private bool interacted = false;
+
     private void Start()
     {
         doorSwitch = GetComponent<DoorSwitch>();
@@ -19,7 +21,11 @@ public class DoorInteract : MonoBehaviour
     {
         if(collider.gameObject.CompareTag("Player"))
         {
-            OpenDoor();
+            if(interacted == false)
+            {
+                OpenDoor();
+            }
+                
         }
     }
 
@@ -27,11 +33,15 @@ public class DoorInteract : MonoBehaviour
     {
         if (playerInteract.Interact())
         {
+            interacted = true;
+
             if (doorSwitch.isLocked() == false)
             {
                 if (doorSwitch.isClosed()) doorSwitch.Open();
-                else if (doorSwitch.isOpen()) doorSwitch.Close();
+                else if (doorSwitch.isOpen()) doorSwitch.Close();          
             }
+
+            interacted = false;
         }
     }
 }

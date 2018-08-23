@@ -8,6 +8,14 @@ public class LightBeamController : MonoBehaviour
 	public float beamWidth = 0.5f;
 	public Color initialColor;
 
+    private enum ColorState { Red, Orange, Blue, Green, Yellow, Purple };
+
+    [SerializeField]
+    private ColorState startingColor = ColorState.Red;
+
+    [SerializeField]
+    private Material[] beamMatArray;
+
 	//This prefab object should have the "LightBeam" tag, a renderer, a trigger collider and kinematic rigidbody
 	public GameObject lightBeamPrefab;
 
@@ -27,6 +35,8 @@ public class LightBeamController : MonoBehaviour
 
 	public struct Beam
     {
+
+
 		//This abstract structure holds all positional and rendereing data for each beam segment
 		public Beam(Vector3 startPoint, Vector3 endPoint, Color beamColor, Collider collider = null)
         {
@@ -85,7 +95,10 @@ public class LightBeamController : MonoBehaviour
         {
 			raycastHit = true;
 			if(hit.collider.gameObject.tag == "LightBeam")
-				drawNewRay = true;
+            {
+                drawNewRay = true;
+            }
+				
 		}
 
 		//Determine where the ray ends based on it's collision
@@ -94,6 +107,7 @@ public class LightBeamController : MonoBehaviour
 
 		//Populate all related information into a Beam structure and save it to a list
 		rays.Add(new Beam(ray.origin ,rayEnd, rayColor, hit.collider));
+
 		//Call function to position the beamObject prefab that corresponds to this ray
 		PositionRayObject();
 		rayNumbers++;
@@ -106,7 +120,8 @@ public class LightBeamController : MonoBehaviour
 	void PositionRayObject(){
 		//Activate the beam object correspoinding to the current ray, and determine its correct position, color and scale
 		beamObjects[rayNumbers].SetActive(true);
-		beamObjects[rayNumbers].GetComponent<Renderer>().material.color = rays[rayNumbers].color;
+        CheckColorState();
+        beamObjects[rayNumbers].GetComponent<Renderer>().material.color = rays[rayNumbers].color;
 		beamObjects[rayNumbers].transform.LookAt(rays[rayNumbers].end);
 		beamObjects[rayNumbers].transform.position = FindMidPoint(rays[rayNumbers].start,rays[rayNumbers].end);
 		beamObjects[rayNumbers].transform.localScale = new Vector3 (beamWidth, beamWidth, (rays[rayNumbers].start - rays[rayNumbers].end).magnitude);
@@ -116,4 +131,38 @@ public class LightBeamController : MonoBehaviour
 		//Middlepoint formula - defines the mid point between two 3d positions
 		return new Vector3 ((vector1.x + vector2.x)/2,(vector1.y + vector2.y)/2,(vector1.z + vector2.z)/2);
 	}
+
+    void CheckColorState()
+    {
+        switch(startingColor)
+        {
+            case ColorState.Red:
+                beamObjects[rayNumbers].GetComponent<Renderer>().material = beamMatArray[0];
+                break;
+
+            case ColorState.Orange:
+                beamObjects[rayNumbers].GetComponent<Renderer>().material = beamMatArray[1];
+                break;
+
+            case ColorState.Blue:
+                beamObjects[rayNumbers].GetComponent<Renderer>().material = beamMatArray[2];
+                break;
+
+            case ColorState.Green:
+                beamObjects[rayNumbers].GetComponent<Renderer>().material = beamMatArray[3];
+                break;
+
+            case ColorState.Yellow:
+                beamObjects[rayNumbers].GetComponent<Renderer>().material = beamMatArray[4];
+                break;
+
+            case ColorState.Purple:
+                beamObjects[rayNumbers].GetComponent<Renderer>().material = beamMatArray[5];
+                break;
+
+            default:
+                beamObjects[rayNumbers].GetComponent<Renderer>().material = beamMatArray[0];
+                break;
+        }
+    }
 }

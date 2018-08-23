@@ -53,12 +53,14 @@ public class DoorSwitch : MonoBehaviour
 
     private void DoorOpen()
     {
+        
         doorGO.SetActive(false);
         lockedBarsGO.SetActive(false);
     }
 
     private void DoorClosed()
     {
+        
         doorGO.SetActive(true);
         lockedBarsGO.SetActive(false);
     }
@@ -72,11 +74,13 @@ public class DoorSwitch : MonoBehaviour
 
     public void Open()
     {
+        Debug.Log("DOOR OPEN!");
         currentDoorState = State.Open;
     }
 
     public void Close()
     {
+        Debug.Log("DOOR CLOSE!");
         currentDoorState = State.Closed;
     }
 

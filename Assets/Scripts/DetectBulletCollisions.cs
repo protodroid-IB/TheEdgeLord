@@ -35,12 +35,13 @@ public class DetectBulletCollisions : MonoBehaviour
 
         if (Physics.Raycast(rayOrigin, transform.forward, out hit, detectRange) || Physics.Raycast(rayOrigin, -transform.right, out hit, detectRange) || Physics.Raycast(rayOrigin, transform.right, out hit, detectRange) || Physics.Raycast(rayOrigin, -transform.up, out hit, detectRange) || Physics.Raycast(rayOrigin, transform.up, out hit, detectRange))
         {
-            bulletBehaviour.DecreaseSpeed(3f);
+            
 
             if (hit.transform.CompareTag("BulletStickCollision"))
             {
-                if(hit.distance <= 0.25f) bulletBehaviour.SetMoveBullet(false);
+                bulletBehaviour.DecreaseSpeed(3f);
 
+                if (hit.distance <= 0.25f) bulletBehaviour.SetMoveBullet(false);
             }
         }
 

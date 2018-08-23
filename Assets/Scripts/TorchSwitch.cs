@@ -14,10 +14,13 @@ public class TorchSwitch : MonoBehaviour
 
     private GameObject lightHitColliderGO;
 
+    private AudioSource onSound;
+
 
     private void Awake()
     {
         lightHitColliderGO = transform.GetChild(2).gameObject;
+        onSound = GetComponent<AudioSource>();
 
         if (torchOn == false)
         {
@@ -32,10 +35,12 @@ public class TorchSwitch : MonoBehaviour
     // turns the torch on
     public void On()
     {
+        if(torchOn == false) onSound.Play();
         torchOn = true;
         fireParticlesGO.SetActive(torchOn);
         lightHitColliderGO.SetActive(true);
         beforeLitMeshGO.SetActive(false);
+        
     } 
 
     // turns the torch off

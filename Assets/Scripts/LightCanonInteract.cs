@@ -28,13 +28,17 @@ public class LightCanonInteract : MonoBehaviour
     }
 
 
-    private void OnTriggerStay(Collider other)
+   
+
+    private void Interact()
     {
-        if (other.CompareTag("Player"))
+        if (DetectPlayer())
         {
+            Debug.Log("Player Detected"); 
+
             if (playerInteract.Interact())
             {
-                if (playerInteract.InteractedUpon().name == gameObject.name)
+                if (playerInteract.InteractedUpon().name == transform.GetChild(1).name)
                 {
                     if (isGrounded == true)
                     {
@@ -50,6 +54,8 @@ public class LightCanonInteract : MonoBehaviour
 
     private void Update()
     {
+        Interact();
+
         if (playerInteract.Interact())
         {
             if (isGrounded == false)
@@ -66,6 +72,12 @@ public class LightCanonInteract : MonoBehaviour
         {
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.Euler(Vector3.zero);
+        }
+        
+        if(transform.position.y < -1.3f)
+        {
+            PlaceBlock();
+            transform.position = new Vector3(transform.position.x, -0.5f, transform.position.z);
         }
     }
 
@@ -100,5 +112,29 @@ public class LightCanonInteract : MonoBehaviour
     {
         return isGrounded;
     }
+
+
+
+
+    bool DetectPlayer()
+    {
+        bool detected = false;
+
+        if(transform.GetChild(0).GetComponent<BoxCollider>().bounds.Contains(playerInteract.transform.position))
+        {
+            detected = true;
+        }
+
+        return detected;
+    }
+
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.transform.CompareTag("BulletStickCollision"))
+    //    {
+    //        lightCanonInteract.PlaceBlock();
+    //    }
+    //}
 
 }

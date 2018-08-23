@@ -8,12 +8,15 @@ public class GunFire : MonoBehaviour
 
     private float fireRateTimer;
 
+    private AudioSource shootAudio;
+
 
 	// Use this for initialization
 	void Start ()
     {
         gunProperties = GetComponent<GunProperties>();
         fireRateTimer = gunProperties.GetFireRate();
+        shootAudio = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -32,6 +35,7 @@ public class GunFire : MonoBehaviour
                 //Debug.Log("Fire!");
                 GameObject bullet = Instantiate(gunProperties.GetBulletPrefab(), gunProperties.GetBulletTransform().position, gunProperties.GetBulletTransform().rotation, gunProperties.GetBulletsInHierarchyTransform());
                 fireRateTimer = gunProperties.GetFireRate();
+                shootAudio.Play();
             }
         }
 
